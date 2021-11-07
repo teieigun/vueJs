@@ -34,6 +34,14 @@
     <p v-html="test_v_html">这里标签的内容将被覆盖,值里面的HTML将被解析</p>
 
     <input type="button" value="臭屁一下" @click="choupi">
+    <input type="button" value="停止" @click="stop">
+
+    <!-- 看我怎么实现走马灯  -->
+
+    <p>
+        {{choupiVal}}
+    </p>
+
 
 </div>
     <script>
@@ -45,11 +53,20 @@
                 test_v_cloak:'用[v-cloak]解决闪烁问题,所谓闪烁问题就是，画面先瞬间显示代码，再显示值的问题',
                 test_v_text:'用[v_text]标签来显示值，默认没有闪烁问题，覆盖标签的值',
                 test_v_html:'<h1>用[v_html]标签来显示值，默认没有闪烁问题，覆盖标签的值</h1>',
-                choupiVal:'吃香的，喝辣的呀！'
+                choupiVal:'吃香的，喝辣的呀！',
+                IntervalId:null
             },
             methods:{
                 choupi(){
-                    alert('爽，'+ this.choupiVal);
+                    if(this.IntervalId!=null) return;
+                     this.IntervalId =  setInterval(()=>{
+                        var start =this.choupiVal.substring(0,1)
+                        var end =this.choupiVal.substring(1)
+                        this.choupiVal = end + start
+                    },400)
+                },stop(){
+                    clearInterval(this.IntervalId)
+                    this.IntervalId = null
                 }
             }
         })
