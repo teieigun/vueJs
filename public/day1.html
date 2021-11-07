@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        [p-style]{
+            display: block;
+            color: blue;
+        }
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+
+    <!--    p-style 名前自由定義    -->
+    <p v-cloak p-style>
+        {{msg}}
+    </p>
+    <!-- v-cloak是预定义，设值之前的画面起作用,用它来解决画面显示时的闪烁问题。
+         p-style是自定义，设值之后的画面起作用。
+    -->
+    <p v-cloak p-style>
+        {{testCloak}}
+    </p>
+    <!-- {{msg}}和v-text很相似，都是显示数据用的   -->
+    <p p-style v-text="msg"></p>
+
+</div>
+    <script>
+        //2.创建一个Vue的实例
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello vue',
+                testCloak:'用cloak解决闪烁问题,所谓闪烁问题就是，画面先瞬间显示代码，再显示值的问题'
+            }
+        })
+    </script>
+    hello 第一天！！
+</body>
+</html>
