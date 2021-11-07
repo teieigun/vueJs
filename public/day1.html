@@ -26,10 +26,14 @@
          p-style是自定义，设值之后的画面起作用。
     -->
     <p v-cloak p-style>
-        {{testCloak}}
+        {{test_v_cloak}}
     </p>
-    <!-- {{msg}}和v-text很相似，都是显示数据用的   -->
-    <p p-style v-text="msg"></p>
+
+    <!-- {{msg}}和v-text很相似，都是显示数据用的,覆盖标签的内容   -->
+    <p v-text="test_v_text">这里标签的内容将被覆盖</p>
+    <p v-html="test_v_html">这里标签的内容将被覆盖,值里面的HTML将被解析</p>
+
+    <input type="button" value="臭屁一下" @click="choupi">
 
 </div>
     <script>
@@ -37,11 +41,19 @@
         var vm = new Vue({
             el:'#app',
             data:{
-                msg:'hello vue',
-                testCloak:'用cloak解决闪烁问题,所谓闪烁问题就是，画面先瞬间显示代码，再显示值的问题'
+                msg:'第一天 hello vue！！！，用{{变量}}来显示值',
+                test_v_cloak:'用[v-cloak]解决闪烁问题,所谓闪烁问题就是，画面先瞬间显示代码，再显示值的问题',
+                test_v_text:'用[v_text]标签来显示值，默认没有闪烁问题，覆盖标签的值',
+                test_v_html:'<h1>用[v_html]标签来显示值，默认没有闪烁问题，覆盖标签的值</h1>',
+                choupiVal:'吃香的，喝辣的呀！'
+            },
+            methods:{
+                choupi(){
+                    alert('爽，'+ this.choupiVal);
+                }
             }
         })
     </script>
-    hello 第一天！！
+
 </body>
 </html>
