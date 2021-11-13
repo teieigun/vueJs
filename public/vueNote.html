@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>vue.js学习笔记</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+    <head>
+        <meta charset="utf-8">
+        <title>vue.js学习笔记</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <div class="container">
 
-</body>
+    <h4>1.vue cli 安装</h4>
+    <pre>
+        $ npm install -g @vue/cli
+        $ vue --version
+        @vue/cli 4.5.15
+    </pre>
+    <h4>2.vue项目构建</h4>
+    <pre class="pre">
+    $ vue create 项目名
+    <div style="background-color: #444444;width: 80%;color:white;border-radius: 10px;margin-left: 60px;text-align: left;">
+    project-sample/
+     ├ package.json
+     ├ vue.config.js : vue和webpack的定义文件
+     ├ babel.config.js : babel的定义文件
+     ├ src : 存放代码
+     |  ├ main.js : 主程序入口
+     |  ├ App.vue : main.js中被调用，主画面
+     |  ├ components : App.vue以外组件
+     |  ├ assets : 静态资源
+     |  ├ plugins : main以外插件
+     ├ public : 静态文件，html
+     ├ dist : <kbd>$ npm run build</kbd> 执行后，webpack就会在此文件夹下打包，然后放到服务
+    </div>
+    </pre>
+
+    <h4>3.启动vue</h4>
+    <pre class="pre">
+        $ cd project-sample
+        $ npm run serve
+    </pre>
+    <p>浏览器中输入localhost:8080，画面可以显示就行</p>
+
+    <h4>4.安装BootStrapVue安装</h4>
+    <pre class="pre">
+    $ npm install vue bootstrap-vue bootstrap
+
+    在main.js里面追加下面内容
+    <div style="background-color: #444444;width: 80%;color:white;border-radius: 10px;margin-left: 60px;text-align: left;">
+    import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+    import 'bootstrap/dist/css/bootstrap.css'
+    import 'bootstrap-vue/dist/bootstrap-vue.css'
+    Vue.use(BootstrapVue)
+    Vue.use(IconsPlugin)
+    </div>
+    </pre>
+    </div>
+    </body>
 </html>
