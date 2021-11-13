@@ -31,20 +31,39 @@
             </li>
         </ul>
 
+        <ul id="example-3">
+            <li v-for="item in 5">
+                {{ item}}
+            </li>
+        </ul>
+
+        <ul id="example-4">
+            <!--顺序是 值，键值，索引 -->
+            <li v-for="(val,key,index) in user">
+                key:{{key}}  value:{{val}} index:{{index}}
+            </li>
+        </ul>
+
     </div>
     <script>
         //2.创建一个Vue的实例
         var vm = new Vue({
             el:'#app',
             data:{
-                array: [0,1,2,3,4,5,6,7,8,9],
+                array: [1,2,3,4,5],
                 listObj:[
                     {id:1,name:'郭靖'},
                     {id:2,name:'杨过'},
                     {id:3,name:'张无忌'},
                     {id:4,name:'令狐冲'},
                     {id:5,name:'东方不败'}
-                ]
+                ],
+                user:{
+                    id:1,
+                    name:'黄蓉',
+                    address:'桃花岛',
+                    skill:'落英神剑掌'
+                }
             }
         })
     </script>
