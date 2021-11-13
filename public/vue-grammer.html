@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>vue.js学习笔记</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../public/css/disp.css">
+
+    </head>
+    <body>
+    <div class="container">
+
+    <h3>v-for的用途是遍历数组，list对象,数字</h3>
+
+    <pre>
+        <h4>1.用v-forb遍历数组</h4>
+     <div class="outStyle">
+    &lt;div id=&quot;app&quot;&gt;
+
+        &lt;ul id=&quot;example-1&quot;&gt;
+            &lt;li v-for=&quot;item in array&quot;&gt;
+                {{ item}}
+            &lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/div&gt;
+    &lt;script&gt;
+        //2.创建一个Vue的实例
+        var vm = new Vue({
+            el:&#039;#app&#039;,
+            data:{
+                array: [0,1,2,3,4,5,6,7,8,9]
+            }
+        })
+    &lt;/script&gt;
+
+     </div>
+        输出结果:
+        ・0
+        ・1
+        ・2
+        ・3
+        ・4
+        ・5
+        ・6
+        ・7
+        ・8
+        ・9
+    </pre>
+    </div>
+    </body>
+</html>
