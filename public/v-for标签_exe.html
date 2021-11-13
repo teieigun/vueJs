@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <title>vue.js学习笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../public/css/disp.css">
+
+    <script src="./lib/vue-2.4.0.js"></script>
+
+</head>
+<body>
+    <div id="app">
+    <label>Id:
+        <input type="text" v-model="id">
+    </label>
+    <label>Name:
+        <input type="text" v-model="name">
+    </label>
+    <input type="button" value="追加" @click="add">
+
+    //不写 :key="user.id" 这个块代码，勾选会随着行的增加而错乱
+    <p v-for="user in userArray" :key="user.id">
+        <input type="checkbox"> {{user.id}} --- {{user.name}}
+    </p>
+    </div>
+
+    <script>
+        //2.创建一个Vue的实例
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                id:'',
+                name:'',
+                userArray:[
+                    {id:1,name:'郭靖'},
+                    {id:2,name:'杨过'},
+                    {id:3,name:'张无忌'},
+                    {id:4,name:'令狐冲'},
+                    {id:5,name:'东方不败'}
+                ]
+            },methods:{
+                add(){
+                    this.userArray.push({id:this.id,name:this.name})
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

@@ -14,7 +14,6 @@
     <div class="container">
 
     <h3>v-for的用途是遍历数组，list对象,数字</h3>
-
     <pre>
         <h4>1.用v-for遍历数组</h4>
      <div class="outStyle">
@@ -45,7 +44,6 @@
         ・3
         ・4
         ・5
-
 
     <h4>2.用v-for遍历对象数组</h4>
     <div class="outStyle">
@@ -80,8 +78,34 @@
 
     <h4>3.用v-for遍历对象</h4>
     <div class="outStyle">
+    &lt;div id=&quot;app&quot;&gt;
+        &lt;ul id=&quot;example-1&quot;&gt;
+            &lt;!--顺序是 值，键值，索引 --&gt;
+            &lt;li v-for=&quot;(val,key,index) in user&quot;&gt;
+                key:{{key}}  value:{{val}} index:{{index}}
+            &lt;/li&gt;
+        &lt;/ul&gt;
 
+    &lt;/div&gt;
+    &lt;script&gt;
+        var vm = new Vue({
+            el:&#039;#app&#039;,
+            data:{
+                user:{
+                    id:1,
+                    name:&#039;黄蓉&#039;,
+                    address:&#039;桃花岛&#039;,
+                    skill:&#039;落英神剑掌&#039;
+                }
+            }
+        })
+    &lt;/script&gt;
     </div>
+        输出结果:
+        ·key:id value:1 index:0
+        ·key:name value:黄蓉 index:1
+        ·key:address value:桃花岛 index:2
+        ·key:skill value:落英神剑掌 index:3
 
     <h4>4.用v-for遍历整数</h4>
     <div class="outStyle">
