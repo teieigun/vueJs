@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+<div id="app">
+
+    <input type="button" value="切换" @click="change">
+    <!-- 元素不输出   -->
+    <p v-if="flag">点一下看不见，再点又出来了</p>
+    <!-- 输出元素，display属性变长none   -->
+    <p v-show="flag">点一下看不见，再点又出来了</p>
+
+</div>
+<script>
+    //2.创建一个Vue的实例
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            flag:true
+        },
+        methods:{
+            change(){
+                this.flag=!this.flag;
+            }
+        }
+    })
+</script>
+</body>
+</html>
